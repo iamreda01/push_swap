@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:15:23 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/06 00:35:34 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/06 03:00:00 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,15 @@ char		*ft_strjoin(char *s1, char *s2);
 size_t		ft_strlcpy(char *dst, char *src, size_t dstsize);
 int			ft_strcmp(char *s1, char *s2);
 long long	ft_atoll(char *str);
+
+// list_utils;
 t_list		*ft_lstnew(int content);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 int			ft_lstsize(t_list *lst);
+t_list		*ft_lstlast(t_list *lst);
 
 // moves ;
-void	swap(t_list **list);
-void	swap_int(int a, int b);
+void		swap(t_list *list);
+void		swap_int(int a, int b);
 
 #endif

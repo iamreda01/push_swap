@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 04:29:19 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/06 01:23:14 by rel-kass         ###   ########.fr       */
+/*   Created: 2025/02/05 23:17:45 by rel-kass          #+#    #+#             */
+/*   Updated: 2025/02/06 03:20:45 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_list	*ft_lstnew(int content)
+void	swap(t_list *list)
 {
-	t_list	*newnode;
-
-	newnode = (t_list *)malloc(sizeof(t_list));
-	if (!newnode)
-		return (NULL);
-	newnode->content = content;
-	newnode->next = NULL;
-	return (newnode);
+	if (ft_lstsize(list) <= 1)
+		return ;
+	swap_int(list->content, list->next->content);
 }
