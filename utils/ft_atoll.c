@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 22:11:36 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/06 01:23:07 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/12 22:03:34 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ long long	ft_atoll(char *str)
 {
 	int			sign;
 	unsigned long long	res;
-	int			vcheck;
 
 	res = 0;
 	sign = 1;

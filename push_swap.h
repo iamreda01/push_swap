@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:15:23 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/06 03:00:00 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/12 22:20:37 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct s_list
 {
 	int	content;
+	int	indix;
 	struct s_list *next;
 } t_list;
 
@@ -42,6 +43,9 @@ t_list		*ft_lstlast(t_list *lst);
 
 // moves ;
 void		swap(t_list *list);
-void		swap_int(int a, int b);
+void		swap_int(int *a, int *b);
+void		rotate(t_list **lst);
+void		push(t_list **from, t_list **to);
+void		reverse_rotate(t_list **lst);
 
 #endif

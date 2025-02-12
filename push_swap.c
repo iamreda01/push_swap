@@ -6,15 +6,15 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:52:58 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/06 03:30:09 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/12 22:32:23 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_error(char *str)
+void	print_error(void)
 {
-	ft_putstr(str);
+	ft_putstr("Error");
 	exit (1);
 }
 int		is_empty(char *str)
@@ -41,7 +41,7 @@ char	*join_args(char **av)
 	while (av[i])
 	{
 		if (is_empty(av[i]))
-			print_error("Error!");
+			print_error();
 		tmp = joined;
 		joined = ft_strjoin(joined, av[i]);
 		free(tmp);
@@ -69,15 +69,18 @@ int is_valid(char *str)
 }
 int		is_dup(int nbr, t_list *a)
 {
-	while (a)
+	t_list *tmp;
+
+	tmp = a;
+	while (tmp)
 	{
-		if (nbr == a->content)
+		if (nbr == tmp->content)
 			return (1);
-		a = a->next;
+		tmp = tmp->next;
 	}
 	return(0);
 }
-void	check_args(char *str, t_list *a)
+void	check_args(char *str, t_list **a)
 {
 	char **splitted;
 	int i;
@@ -87,15 +90,16 @@ void	check_args(char *str, t_list *a)
 	while (splitted[i])
 	{
 		if (!is_valid(splitted[i]))
-			print_error("Error!");
+			print_error();
 		i++;
 	}
 	i = 0;
 	while (splitted[i])
 	{
-		if (is_dup(ft_atoll(splitted[i]), a))
-			print_error("Error!");
-		ft_lstadd_back(&a, ft_lstnew(ft_atoll(splitted[i])));
+		if (is_dup(ft_atoll(splitted[i]), *a) || ft_atoll(splitted[i]) > INT_MAX
+			|| ft_atoll(splitted[i]) < INT_MIN)
+			print_error();
+		ft_lstadd_back(a, ft_lstnew(ft_atoll(splitted[i])));
 		i++;
 	}
 }
@@ -105,11 +109,23 @@ int main (int ac, char **av)
 	char *joined;
 	t_list *a;
 	t_list *b;
-	
+
+	a = NULL;
+	b = NULL;
 	if (ac > 1)
 	{
 		joined = join_args(av);
-		a = NULL; 
-		check_args(joined, a);
+		check_args(joined, &a);
 	}
+	while (a)
+	{
+		printf("content : %d\n", a->content);
+		printf("indix : %d\n\n", a->indix);
+		a = a->next;
+	}
+	// while (b)
+	// {
+	// 	printf("%d\n", b->content);
+	// 	b = b->next;
+	// }
 }

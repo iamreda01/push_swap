@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:08:16 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/06 01:23:36 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/12 22:08:03 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,11 @@ int	ft_strcmp(char *s1, char *s2)
 	}
 	return (0);
 }
-void	swap_int(int a, int b)
+void	swap_int(int *a, int *b)
 {
 	int tmp;
 
-	tmp = a;
-	a = b;
-	b = tmp;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

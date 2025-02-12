@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 02:56:59 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/06 02:58:49 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/12 22:51:56 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,12 @@ t_list	*ft_lstnew(int content)
 		return (NULL);
 	newnode->content = content;
 	newnode->next = NULL;
+	newnode->indix = 0;
 	return (newnode);
 }
+
+
+// index(*lst , DATA )
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
@@ -36,22 +40,19 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 		return ;
 	}
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	tmp->next = new;
-}
-
-int	ft_lstsize(t_list *lst)
-{
-	int	count;
-
-	count = 0;
-	while (lst)
+	while (tmp->next)
 	{
-		count++;
-		lst = lst->next;
+		if (tmp->content > new->content)
+			tmp->indix++;
+		else
+			new->indix++;
+		tmp = tmp->next;
 	}
-	return (count);
+	if (tmp->content > new->content)
+		tmp->indix++;
+	else
+		new->indix++;
+	tmp->next = new;
 }
 
 t_list	*ft_lstlast(t_list *lst)

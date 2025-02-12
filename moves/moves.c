@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 04:48:13 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/06 04:48:35 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/12 22:17:51 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	swap(t_list *list)
 {
-	if (ft_lstsize(list) <= 1)
+	if (!list)
 		return ;
-	swap_int(list->content, list->next->content);
+	swap_int(&list->content, &list->next->content);
 }
 
 void	push(t_list **from, t_list **to)
 {
 	t_list *tmp;
 	
-	if (!from || !to || !*from || !*to)
+	if (!from || !*from)
 		return ;
 	tmp = (*from)->next;
 	(*from)->next = *to;
@@ -42,5 +42,21 @@ void	rotate(t_list **lst)
 	last = ft_lstlast(*lst);
 	(*lst)->next = NULL;
 	last->next = *lst;
-	lst = tmp;
+	*lst = tmp;
+}
+
+void	reverse_rotate(t_list **lst)
+{
+	if (!lst || !*lst || !(*lst)->next)
+		return ;
+	t_list *tmp;
+	t_list *last;
+
+	tmp = *lst;
+	while (tmp->next->next)
+		tmp = tmp->next;
+	last = tmp->next;
+	tmp->next = NULL;
+	last->next = *lst;
+	*lst = last ; 
 }
