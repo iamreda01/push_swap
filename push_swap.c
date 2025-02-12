@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:52:58 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/12 22:32:23 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/12 23:30:59 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,21 +107,21 @@ void	check_args(char *str, t_list **a)
 int main (int ac, char **av)
 {
 	char *joined;
-	t_list *a;
-	t_list *b;
+	t_list *stack_a;
+	t_list *stack_b;
 
-	a = NULL;
-	b = NULL;
+	stack_a = NULL;
+	stack_b = NULL;
 	if (ac > 1)
 	{
 		joined = join_args(av);
-		check_args(joined, &a);
+		check_args(joined, &stack_a);
 	}
-	while (a)
+	while (stack_a)
 	{
-		printf("content : %d\n", a->content);
-		printf("indix : %d\n\n", a->indix);
-		a = a->next;
+		printf("content : %d\n", stack_a->content);
+		printf("indix : %d\n\n", stack_a->indix);
+		stack_a = stack_a->next;
 	}
 	// while (b)
 	// {
