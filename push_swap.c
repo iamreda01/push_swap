@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:52:58 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/15 15:23:17 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/15 16:19:00 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,92 +16,6 @@ void	print_error(void)
 {
 	ft_putstr("Error");
 	exit (1);
-}
-int		is_empty(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] != ' ')
-			return (0);
-		i++;
-	}
-	return (1);
-}
-char	*join_args(char **av)
-{
-	int i;
-	char *joined;
-	char *tmp;
-
-	i = 1;
-	joined = NULL;
-	while (av[i])
-	{
-		if (is_empty(av[i]))
-			print_error();
-		tmp = joined;
-		joined = ft_strjoin(joined, av[i]);
-		free(tmp);
-		i++;
-	}
-	return (joined);
-}
-
-int is_valid(char *str)
-{
-	int i;
-
-	i = 0 ; 
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	if (!str[i])
-		return (0);
-	while (str[i])
-	{
-		if(!(str[i] >= '0' && str[i] <= '9'))
-			return (0); 
-		i++; 
-	}
-	return (1);
-}
-int		is_dup(int nbr, t_list *a)
-{
-	t_list *tmp;
-
-	tmp = a;
-	while (tmp)
-	{
-		if (nbr == tmp->content)
-			return (1);
-		tmp = tmp->next;
-	}
-	return(0);
-}
-void	check_args(char *str, t_list **a)
-{
-	char **splitted;
-	int i;
-
-	i = 0;
-	splitted = ft_split(str, ' ');
-	while (splitted[i])
-	{
-		if (!is_valid(splitted[i]))
-			print_error();
-		i++;
-	}
-	i = 0;
-	while (splitted[i])
-	{
-		if (is_dup(ft_atoll(splitted[i]), *a) || ft_atoll(splitted[i]) > INT_MAX
-			|| ft_atoll(splitted[i]) < INT_MIN)
-			print_error();
-		ft_lstadd_back(a, ft_lstnew(ft_atoll(splitted[i])));
-		i++;
-	}
 }
 
 int main (int ac, char **av)
@@ -119,9 +33,20 @@ int main (int ac, char **av)
 	}
 	if (is_sorted(stack_a))
 		return (0);
+	if (ft_lstsize(stack_a) <= 5)
+	{
+		if (ft_lstsize(stack_a) == 2)
+			sort_2nb(stack_a);
+		else if (ft_lstsize(stack_a) == 3)
+			sort_3nb(&stack_a);
+		else if (ft_lstsize(stack_a) == 4)
+			sort_4nb(&stack_a, &stack_b);
+		else
+			sort_5nb(&stack_a, &stack_b);
+	}
 	// sort_5nb(&stack_a, &stack_b);
-	// sort_4nb(&stack_a, &stack_b);
-	sort_3nb(&stack_a);
+	// // sort_4nb(&stack_a, &stack_b);
+	// // sort_3nb(&stack_a);
 	while (stack_a)
 	{
 		printf("content : %d\n", stack_a->content);

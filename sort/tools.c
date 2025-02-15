@@ -7,9 +7,7 @@ t_list		*ft_max(t_list *stack)
 	max = stack;
 	while (stack->next)
 	{
-		// if (stack->indix > stack->next->indix)
-		// 	max = stack;
-		if (stack->next->indix > stack->indix)
+		if (stack->next->indix > max->indix)
 			max = stack->next;
 		stack = stack->next;
 	}
@@ -23,7 +21,7 @@ t_list		*ft_min(t_list *stack)
 	min = stack;
 	while (stack->next)
 	{
-		if (stack->next->indix < stack->indix)
+		if (min->indix > stack->next->indix)
 			min = stack->next;
 		stack = stack->next;
 	}

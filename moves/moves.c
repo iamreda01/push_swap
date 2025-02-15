@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 04:48:13 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/14 17:10:41 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:28:11 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	push(t_list **from, t_list **to)
 		return ;
 	tmp = (*from)->next;
 	(*from)->next = *to;
-	(*to) = (*from);
+	*to = *from;
 	*from = tmp;
 }
 

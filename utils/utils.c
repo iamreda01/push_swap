@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:08:16 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/12 22:08:03 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:59:48 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,19 @@ void	ft_putstr(char *str)
 	}
 }
 
+char	*ft_strdup(char *s1)
+{
+	char	*tab;
+	size_t	s1len;
+
+	s1len = ft_strlen(s1) + 1;
+	tab = malloc(sizeof(char) * s1len);
+	if (tab == NULL)
+		return (NULL);
+	ft_strlcpy(tab, s1, s1len);
+	return (tab);
+}
+
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str;
@@ -43,10 +56,10 @@ char	*ft_strjoin(char *s1, char *s2)
 	i = 0;
 	j = 0;
 	if (!s1)
-		return (strdup(s2));
+		return (ft_strdup(s2));
 	if (!s2)
-		return (strdup(s1));
-	str = malloc(sizeof(char) * (strlen(s1) + strlen(s2) + 2));
+		return (ft_strdup(s1));
+	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
 	if (!str)
 		return (NULL);
 	while (s1[i])
