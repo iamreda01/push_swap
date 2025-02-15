@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 04:48:13 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/12 22:17:51 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/14 17:10:41 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	swap(t_list *list)
 	if (!list)
 		return ;
 	swap_int(&list->content, &list->next->content);
+	swap_int(&list->indix, &list->next->indix);
 }
 
 void	push(t_list **from, t_list **to)
