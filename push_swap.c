@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:52:58 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/15 16:19:00 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/16 01:50:20 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,15 @@ int main (int ac, char **av)
 		else
 			sort_5nb(&stack_a, &stack_b);
 	}
-	// sort_5nb(&stack_a, &stack_b);
-	// // sort_4nb(&stack_a, &stack_b);
-	// // sort_3nb(&stack_a);
+	else 
+	{
+		moveto_b(&stack_a, &stack_b);
+		moveto_a(&stack_a, &stack_b);
+	}
 	while (stack_a)
 	{
 		printf("content : %d\n", stack_a->content);
-		printf("indix : %d\n\n", stack_a->indix);
+		printf("index : %d\n\n", stack_a->index);
 		stack_a = stack_a->next;
 	}
 }

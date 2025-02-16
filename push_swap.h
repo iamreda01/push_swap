@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:15:23 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/15 16:20:20 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/16 01:50:20 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 typedef struct s_list
 {
 	int	content;
-	int	indix;
+	int	index;
+	int pos;
 	struct s_list *next;
 } t_list;
 
@@ -64,12 +65,15 @@ void	sort_2nb(t_list *stack);
 void	sort_3nb(t_list **stack);
 void	sort_4nb(t_list **stack_a, t_list **stack_b);
 void	sort_5nb(t_list **stack_a, t_list **stack_b);
-void	sort_stack(t_list **stack_a, t_list **stack_b);
+void	moveto_b(t_list **stack_a, t_list **stack_b);
+void	moveto_a(t_list **stack_a, t_list **stack_b);
 
 // tools;
 void		swap_int(int *a, int *b);
 t_list		*ft_max(t_list *stack);
 t_list		*ft_min(t_list *stack);
+void		set_pos(t_list *stack);
+int			ft_max_pos(t_list *stack);
 
 
 #endif

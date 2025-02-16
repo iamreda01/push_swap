@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 02:56:59 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/14 16:47:18 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/16 01:50:20 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ t_list	*ft_lstnew(int content)
 	if (!newnode)
 		return (NULL);
 	newnode->content = content;
+	newnode->index = 0;
+	newnode->pos = 0;
 	newnode->next = NULL;
-	newnode->indix = 0;
 	return (newnode);
 }
 
@@ -40,15 +41,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	while (tmp->next)
 	{
 		if (tmp->content > new->content)
-			tmp->indix++;
+			tmp->index++;
 		else
-			new->indix++;
+			new->index++;
 		tmp = tmp->next;
 	}
 	if (tmp->content > new->content)
-		tmp->indix++;
+		tmp->index++;
 	else
-		new->indix++;
+		new->index++;
 	tmp->next = new;
 }
 
