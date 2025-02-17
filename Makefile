@@ -2,7 +2,7 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror
 
 NAME = push_swap
-SRC = push_swap.c utils/ft_atoll.c utils/ft_split.c utils/utils.c utils/list_utils.c parsing.c moves/moves.c sort/sort.c sort/small_sort.c sort/tools.c
+SRC = push_swap.c utils/ft_atoll.c utils/ft_split.c utils/utils.c utils/list_utils.c parsing.c moves/moves.c sort/sort.c sort/small_sort.c sort/tools.c utils/error.c
 
 OBJ = $(SRC:.c=.o)
 

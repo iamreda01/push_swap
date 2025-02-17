@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 04:48:13 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/16 01:50:20 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/16 15:49:08 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,5 @@ void	reverse_rotate(t_list **lst)
 	last = tmp->next;
 	tmp->next = NULL;
 	last->next = *lst;
-	*lst = last ; 
+	*lst = last;
 }

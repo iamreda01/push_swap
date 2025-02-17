@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:15:23 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/16 01:50:20 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/16 15:41:32 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,13 @@ t_list		*ft_lstnew(int content);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 t_list		*ft_lstlast(t_list *lst);
 int			ft_lstsize(t_list *lst);
+void		free_lst(t_list **stack);
+
+
 // errors;
 void	print_error(void);
+void	lst_print_error(t_list **stack);
+void	free_arr(char **str);
 
 
 // parsing;

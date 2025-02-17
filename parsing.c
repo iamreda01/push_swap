@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:11:12 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/15 16:18:55 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/16 15:40:56 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ char	*join_args(char **av)
 	while (av[i])
 	{
 		if (is_empty(av[i]))
+		{
+			free(joined);
 			print_error();
+		}
 		tmp = joined;
 		joined = ft_strjoin(joined, av[i]);
 		free(tmp);
@@ -85,7 +88,10 @@ void	check_args(char *str, t_list **a)
 	while (splitted[i])
 	{
 		if (!is_valid(splitted[i]))
+		{
+			free_arr(splitted);
 			print_error();
+		}
 		i++;
 	}
 	i = 0;
@@ -93,7 +99,7 @@ void	check_args(char *str, t_list **a)
 	{
 		if (is_dup(ft_atoll(splitted[i]), *a) || ft_atoll(splitted[i]) > INT_MAX
 			|| ft_atoll(splitted[i]) < INT_MIN)
-			print_error();
+			lst_print_error(a);
 		ft_lstadd_back(a, ft_lstnew(ft_atoll(splitted[i])));
 		i++;
 	}

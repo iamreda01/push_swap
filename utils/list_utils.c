@@ -6,7 +6,7 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 02:56:59 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/16 01:50:20 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/02/16 15:54:56 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,18 @@ int	ft_lstsize(t_list *lst)
 		lst = lst->next;
 	}
 	return (count);
+}
+
+void	free_lst(t_list **stack)
+{
+	t_list *tmp;
+	if (!stack || !*stack)
+		return ;
+
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
 }
