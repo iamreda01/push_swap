@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int		is_empty(char *str)
 {
@@ -85,6 +85,7 @@ void	check_args(char *str, t_list **a)
 
 	i = 0;
 	splitted = ft_split(str, ' ');
+	free(str);
 	while (splitted[i])
 	{
 		if (!is_valid(splitted[i]))
@@ -103,4 +104,5 @@ void	check_args(char *str, t_list **a)
 		ft_lstadd_back(a, ft_lstnew(ft_atoll(splitted[i])));
 		i++;
 	}
+	free_arr(splitted);
 }

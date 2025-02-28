@@ -30,6 +30,7 @@ void	push(t_list **from, t_list **to)
 	(*from)->next = *to;
 	*to = *from;
 	*from = tmp;
+	// free(tmp);
 }
 
 void	rotate(t_list **lst)
@@ -41,9 +42,11 @@ void	rotate(t_list **lst)
 	
 	tmp = (*lst)->next;
 	last = ft_lstlast(*lst);
-	(*lst)->next = NULL;
+		(*lst)->next = NULL;
 	last->next = *lst;
 	*lst = tmp;
+	// free(tmp);
+	// free(last);
 }
 
 void	reverse_rotate(t_list **lst)
@@ -60,4 +63,6 @@ void	reverse_rotate(t_list **lst)
 	tmp->next = NULL;
 	last->next = *lst;
 	*lst = last;
+	// free(tmp);
+	// free(last);
 }

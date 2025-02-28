@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../push_swap_bonus.h"
 
 int		is_sorted(t_list *stack)
 {
@@ -31,25 +31,33 @@ void	moveto_b(t_list **stack_a, t_list **stack_b)
 {
 	int chunk;
 	int i;
+	int size;
 
-	i= 0;
-	if (ft_lstsize(*stack_a) <= 100)
+	i = 0;
+	size = ft_lstsize(*stack_a);
+	if (size <= 100)
 		chunk = 16;
 	else
 		chunk = 36;
-	while ((*stack_a))
+	while (i < size)
 	{
 		if ((*stack_a)->index <= i)
 		{
-				push(stack_a, stack_b);
-				ft_putstr("pb\n");
-				i++;
+			push(stack_a, stack_b);
+			ft_putstr("pb\n");
+			i++;
 		}
 		else if ((*stack_a)->index <= i + chunk)
 		{
-				push(stack_a, stack_b);
+			push(stack_a, stack_b);
+			ft_putstr("pb\n");
+			if (ft_lstsize(*stack_b) > 1)
+			{
 				rotate(stack_b);
-				ft_putstr("pb\nrb\n");
+				ft_putstr("rb\n");
+			}
+			// rotate(stack_b);
+			// ft_putstr("rb\n");
 			i++;
 		}
 		else
@@ -58,7 +66,9 @@ void	moveto_b(t_list **stack_a, t_list **stack_b)
 				ft_putstr("ra\n");
 		}
 	}
+	// printf("stack a size : %d\n", ft_lstsize(*stack_a));
 }
+
 
 void	moveto_a(t_list **stack_a, t_list **stack_b)
 {
@@ -66,6 +76,7 @@ void	moveto_a(t_list **stack_a, t_list **stack_b)
 	int		size;
 
 	size = ft_lstsize(*stack_b);
+	// printf("stack b size :  %d\n", size);
 	while (size > 0)
 	{
 		set_pos(*stack_b);
@@ -86,5 +97,30 @@ void	moveto_a(t_list **stack_a, t_list **stack_b)
 			reverse_rotate(stack_b);
 			ft_putstr("rrb\n");
 		}	
+	}
+}
+
+void	ft_sort(t_list **stack_a, t_list **stack_b)
+{
+	if (is_sorted(*stack_a))
+	{
+		free_lst(stack_a);
+		exit (0);
+	}
+	if (ft_lstsize(*stack_a) <= 5)
+	{
+		if (ft_lstsize(*stack_a) == 2)
+			sort_2nb(*stack_a);
+		else if (ft_lstsize(*stack_a) == 3)
+			sort_3nb(stack_a);
+		else if (ft_lstsize(*stack_a) == 4)
+			sort_4nb(stack_a, stack_b);
+		else
+			sort_5nb(stack_a, stack_b);
+	}
+	else 
+	{
+		moveto_b(stack_a, stack_b);
+		moveto_a(stack_a, stack_b);
 	}
 }

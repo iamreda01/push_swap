@@ -1,8 +1,10 @@
-#include "../push_swap.h"
+#include "../push_swap_bonus.h"
 
 t_list		*ft_max(t_list *stack)
 {
 	t_list *max;
+	if (!stack)
+		return (NULL);
 
 	max = stack;
 	while (stack->next)
@@ -17,6 +19,8 @@ t_list		*ft_max(t_list *stack)
 t_list		*ft_min(t_list *stack)
 {
 	t_list *min;
+	if (!stack)
+		return (NULL);
 
 	min = stack;
 	while (stack->next)
@@ -44,6 +48,8 @@ void	set_pos(t_list *stack)
 int		ft_max_pos(t_list *stack)
 {
 	int		max_pos;
+	if (!stack)
+		return (0);
 
 	max_pos = 0;
 	while (stack->next)

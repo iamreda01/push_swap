@@ -10,51 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	ff(void)
-{
-	system("leaks push_swap");
-}
+#include "push_swap_bonus.h"
 
 int main (int ac, char **av)
 {
-	atexit(ff);
-	char *joined;
-	t_list *stack_a;
-	t_list *stack_b;
+	char	*joined;
+	t_list 	*stack_a;
+	t_list 	*stack_b;
+	char	*str;
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (ac > 1)
+	if (ac < 2)
+		print_error();
+	joined = join_args(av);
+	check_args(joined, &stack_a);
+	str = get_next_line(0);
+	// printf("%s\n" ,str);
+	while (str)
 	{
-		joined = join_args(av);
-		check_args(joined, &stack_a);
-	}
-	if (is_sorted(stack_a))
-		return (0);
-	if (ft_lstsize(stack_a) <= 5)
-	{
-		if (ft_lstsize(stack_a) == 2)
-			sort_2nb(stack_a);
-		else if (ft_lstsize(stack_a) == 3)
-			sort_3nb(&stack_a);
-		else if (ft_lstsize(stack_a) == 4)
-			sort_4nb(&stack_a, &stack_b);
+		if (is_valid_move(str))
+			apply_moves(&stack_a, &stack_b, str);
 		else
-			sort_5nb(&stack_a, &stack_b);
+		{
+			print_error();
+			free(str);
+		}
+		free(str);
+		str = get_next_line(0);
 	}
-	else 
+	if(is_sorted(stack_a))
 	{
-		moveto_b(&stack_a, &stack_b);
-		moveto_a(&stack_a, &stack_b);
+		ft_putstr("OK\n");
+		exit (0);
 	}
-	// while (stack_a)
-	// {
-	// 	printf("content : %d\n", stack_a->content);
-	// 	printf("index : %d\n\n", stack_a->index);
-	// 	stack_a = stack_a->next;
-	// }
-	// free_lst(&stack_b);
-	// free_lst(&stack_a);
+	else
+	{
+		ft_putstr("KO\n");
+		exit (1);
+	}	
 }

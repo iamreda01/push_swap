@@ -15,7 +15,7 @@
 long long	ft_atoll(char *str)
 {
 	int			sign;
-	unsigned long long	res;
+	long long	res;
 
 	res = 0;
 	sign = 1;

@@ -16,7 +16,9 @@
 // libs;
 # include <unistd.h>
 # include <stdlib.h>
-# include <libc.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <limits.h>
 
 // struct;
 typedef struct s_list
@@ -72,6 +74,7 @@ void	sort_4nb(t_list **stack_a, t_list **stack_b);
 void	sort_5nb(t_list **stack_a, t_list **stack_b);
 void	moveto_b(t_list **stack_a, t_list **stack_b);
 void	moveto_a(t_list **stack_a, t_list **stack_b);
+void	ft_sort(t_list **stack_a, t_list **stack_b);
 
 // tools;
 void		swap_int(int *a, int *b);
