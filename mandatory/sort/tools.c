@@ -45,18 +45,22 @@ void	set_pos(t_list *stack)
 	}
 }
 
-int		ft_max_pos(t_list *stack)
+int		decide(t_list *stack)
 {
-	int		max_pos;
-	if (!stack)
-		return (0);
+	int		count;
+	t_list *tmp;
+	int		size;
 
-	max_pos = 0;
-	while (stack->next)
+	size = ft_lstsize(stack);
+	count = 0;
+	tmp = stack;
+	while (tmp->next)
 	{
-		if (stack->pos > max_pos)
-			max_pos = stack->pos;
-		stack = stack->next;
+		if (tmp->next - tmp->next->next <= 4)
+			count++;
+		tmp = tmp->next;
 	}
-	return (max_pos);
+	if (count * 10 >= 6 * size)
+		return (1);
+	return (0);
 }

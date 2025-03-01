@@ -27,7 +27,8 @@ int		is_sorted(t_list *stack)
 	return (1);
 }
 
-void	moveto_b(t_list **stack_a, t_list **stack_b)
+
+void	moveto_b(t_list **stack_a, t_list **stack_b, int decis)
 {
 	int chunk;
 	int i;
@@ -43,30 +44,20 @@ void	moveto_b(t_list **stack_a, t_list **stack_b)
 	{
 		if ((*stack_a)->index <= i)
 		{
-			push(stack_a, stack_b);
-			ft_putstr("pb\n");
+			pb(stack_a, stack_b);
 			i++;
 		}
 		else if ((*stack_a)->index <= i + chunk)
 		{
-			push(stack_a, stack_b);
-			ft_putstr("pb\n");
-			if (ft_lstsize(*stack_b) > 1)
-			{
-				rotate(stack_b);
-				ft_putstr("rb\n");
-			}
-			// rotate(stack_b);
-			// ft_putstr("rb\n");
+			pb(stack_a, stack_b);
+			rb(stack_b);
 			i++;
 		}
+		else if ( decis) 
+			ra(stack_a);
 		else
-		{
-				rotate(stack_a);
-				ft_putstr("ra\n");
-		}
+			rra(stack_a);
 	}
-	// printf("stack a size : %d\n", ft_lstsize(*stack_a));
 }
 
 
@@ -76,32 +67,27 @@ void	moveto_a(t_list **stack_a, t_list **stack_b)
 	int		size;
 
 	size = ft_lstsize(*stack_b);
-	// printf("stack b size :  %d\n", size);
 	while (size > 0)
 	{
 		set_pos(*stack_b);
 		max = ft_max(*stack_b);
 		if (max->pos == 0)
 		{
-			push(stack_b, stack_a);
-			ft_putstr("pa\n");
+			pa(stack_a, stack_b);
 			size--;
 		}
 		else if (max->pos <= size / 2)
-		{
-			rotate(stack_b);
-			ft_putstr("rb\n");
-		}
+			rb(stack_b);
 		else 
-		{
-			reverse_rotate(stack_b);
-			ft_putstr("rrb\n");
-		}	
+			rrb(stack_b);
 	}
 }
 
+
 void	ft_sort(t_list **stack_a, t_list **stack_b)
 {
+	int decis;
+	decis = decide(*stack_a);
 	if (is_sorted(*stack_a))
 	{
 		free_lst(stack_a);
@@ -120,7 +106,7 @@ void	ft_sort(t_list **stack_a, t_list **stack_b)
 	}
 	else 
 	{
-		moveto_b(stack_a, stack_b);
+		moveto_b(stack_a, stack_b, decis);
 		moveto_a(stack_a, stack_b);
 	}
 }

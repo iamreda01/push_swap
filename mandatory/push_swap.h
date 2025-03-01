@@ -65,6 +65,18 @@ void		swap(t_list *list);
 void		rotate(t_list **lst);
 void		push(t_list **from, t_list **to);
 void		reverse_rotate(t_list **lst);
+void    	sa(t_list *stack);
+void    	ra(t_list **stack);
+void    	rra(t_list **stack);
+void    	pa(t_list **a, t_list **b);
+void    	sb(t_list *stack);
+void    	rb(t_list **stack);
+void    	rrb(t_list **stack);
+void    	pb(t_list **a, t_list **b);
+void    	ss(t_list *a, t_list *b);
+void    	rr(t_list **a, t_list **b);
+void    	rrr(t_list **a, t_list **b);
+void   		rrr(t_list **a, t_list **b);
 
 // sort;
 int		is_sorted(t_list *stack);
@@ -72,7 +84,7 @@ void	sort_2nb(t_list *stack);
 void	sort_3nb(t_list **stack);
 void	sort_4nb(t_list **stack_a, t_list **stack_b);
 void	sort_5nb(t_list **stack_a, t_list **stack_b);
-void	moveto_b(t_list **stack_a, t_list **stack_b);
+void	moveto_b(t_list **stack_a, t_list **stack_b, int decis);
 void	moveto_a(t_list **stack_a, t_list **stack_b);
 void	ft_sort(t_list **stack_a, t_list **stack_b);
 
@@ -82,6 +94,7 @@ t_list		*ft_max(t_list *stack);
 t_list		*ft_min(t_list *stack);
 void		set_pos(t_list *stack);
 int			ft_max_pos(t_list *stack);
+int			decide(t_list *stack);
 
 
 #endif
