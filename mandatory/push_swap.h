@@ -93,8 +93,7 @@ void		swap_int(int *a, int *b);
 t_list		*ft_max(t_list *stack);
 t_list		*ft_min(t_list *stack);
 void		set_pos(t_list *stack);
-int			ft_max_pos(t_list *stack);
-int			decide(t_list *stack);
+int			is_case(t_list *stack);
 
 
 #endif
