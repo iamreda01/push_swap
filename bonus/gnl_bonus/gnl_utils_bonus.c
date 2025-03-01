@@ -18,8 +18,8 @@ void	*ft_calloc(size_t count, size_t size)
 	size_t			i;
 
 	i = 0;
-	// if (count < 0 || size < 0)
-	// 	return (NULL);
+	if (count < 0 || size < 0)
+		return (NULL);
 	ptr = malloc(count * size);
 	if (ptr == NULL)
 		return (ptr);
@@ -30,16 +30,6 @@ void	*ft_calloc(size_t count, size_t size)
 	}
 	return ((void *)ptr);
 }
-
-// size_t	ft_strlen(const char *s)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	while (s[i])
-// 		i++;
-// 	return (i);
-// }
 
 char	*ft_strchr(const char *s, int c)
 {

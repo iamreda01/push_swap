@@ -45,7 +45,7 @@ void	set_pos(t_list *stack)
 	}
 }
 
-int		decide(t_list *stack)
+int		is_case(t_list *stack)
 {
 	int		count;
 	t_list *tmp;

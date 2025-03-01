@@ -48,17 +48,17 @@ void		free_lst(t_list **stack);
 
 
 // errors;
-void	print_error(void);
-void	lst_print_error(t_list **stack);
-void	free_arr(char **str);
+void		print_error(void);
+void		lst_print_error(t_list **stack, char **str);
+void		free_arr(char **str);
 
 
 // parsing;
-int		is_empty(char *str);
-char	*join_args(char **av);
-int		is_valid(char *str);
-int		is_dup(int nbr, t_list *a);
-void	check_args(char *str, t_list **a);
+int			is_empty(char *str);
+char		*join_args(char **av);
+int			is_valid(char *str);
+int			is_dup(int nbr, t_list *a);
+void		check_args(char *str, t_list **a);
 
 // moves ;
 void		swap(t_list *list);
@@ -79,14 +79,14 @@ void    	rrr(t_list **a, t_list **b);
 void   		rrr(t_list **a, t_list **b);
 
 // sort;
-int		is_sorted(t_list *stack);
-void	sort_2nb(t_list *stack);
-void	sort_3nb(t_list **stack);
-void	sort_4nb(t_list **stack_a, t_list **stack_b);
-void	sort_5nb(t_list **stack_a, t_list **stack_b);
-void	moveto_b(t_list **stack_a, t_list **stack_b, int decis);
-void	moveto_a(t_list **stack_a, t_list **stack_b);
-void	ft_sort(t_list **stack_a, t_list **stack_b);
+int			is_sorted(t_list *stack);
+void		sort_2nb(t_list *stack);
+void		sort_3nb(t_list **stack);
+void		sort_4nb(t_list **stack_a, t_list **stack_b);
+void		sort_5nb(t_list **stack_a, t_list **stack_b);
+void		moveto_b(t_list **stack_a, t_list **stack_b, int decis);
+void		moveto_a(t_list **stack_a, t_list **stack_b);
+void		ft_sort(t_list **stack_a, t_list **stack_b);
 
 // tools;
 void		swap_int(int *a, int *b);

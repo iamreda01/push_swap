@@ -18,10 +18,11 @@ void	print_error(void)
 	exit (1);
 }
 
-void	lst_print_error(t_list **stack)
+void	lst_print_error(t_list **stack, char **str)
 {
 	if (stack)
 		free_lst(stack);
+	free_arr(str);
 	ft_putstr("Error");
 	exit (1);
 }

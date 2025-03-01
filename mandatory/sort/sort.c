@@ -87,7 +87,7 @@ void	moveto_a(t_list **stack_a, t_list **stack_b)
 void	ft_sort(t_list **stack_a, t_list **stack_b)
 {
 	int decis;
-	decis = decide(*stack_a);
+	decis = is_case(*stack_a);
 	if (is_sorted(*stack_a))
 	{
 		free_lst(stack_a);

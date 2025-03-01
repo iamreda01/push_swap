@@ -24,7 +24,7 @@ void	swap(t_list *list)
 
 void	push(t_list **from, t_list **to)
 {
-	t_list *tmp;
+	t_list	*tmp;
 	
 	if (!from || !*from)
 		return ;
@@ -40,8 +40,8 @@ void	rotate(t_list **lst)
 		return ;
 	if (ft_lstsize(*lst) < 2)
 		return ;
-	t_list *tmp;
-	t_list *last;
+	t_list	*tmp;
+	t_list	*last;
 	
 	tmp = (*lst)->next;
 	last = ft_lstlast(*lst);
@@ -56,8 +56,8 @@ void	reverse_rotate(t_list **lst)
 		return ;
 	if (ft_lstsize(*lst) < 2)
 		return ;
-	t_list *tmp;
-	t_list *last;
+	t_list	*tmp;
+	t_list	*last;
 
 	tmp = *lst;
 	while (tmp->next->next)

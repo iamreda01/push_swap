@@ -100,7 +100,7 @@ void	check_args(char *str, t_list **a)
 	{
 		if (is_dup(ft_atoll(splitted[i]), *a) || ft_atoll(splitted[i]) > INT_MAX
 			|| ft_atoll(splitted[i]) < INT_MIN)
-			lst_print_error(a);
+			lst_print_error(a, splitted);
 		ft_lstadd_back(a, ft_lstnew(ft_atoll(splitted[i])));
 		i++;
 	}

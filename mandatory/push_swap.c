@@ -21,28 +21,9 @@ int main (int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac < 2)
-		print_error();
+		return (0);
 	joined = join_args(av);
 	check_args(joined, &stack_a);
 	ft_sort(&stack_a, &stack_b);
 	free_lst(&stack_a);
-	// if (!stack_b)
-	// 	printf("yessssssssss\n\n\n\n");
-	// while (stack_b)
-	// {
-	// 	printf("stack b content : %d\n", stack_b->content);
-	// 	printf("index : %d\n\n", stack_b->index);
-	// 	stack_b = stack_b->next;
-	// }
-	// while (stack_a)
-	// {
-	// 	printf("content : %d\n", stack_a->content);
-	// 	printf("index : %d\n\n", stack_a->index);
-	// 	// printf("pos : %d\n", stack_a->pos);
-	// 	stack_a = stack_a->next;
-	// }
-	// free_lst(&stack_b);
-	// ft_lstclear(&stack_a, &free);
-	// if (stack_a)
-	// 	printf("m here");
 }

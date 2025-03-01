@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 // libs;
 # include <unistd.h>
@@ -50,7 +50,7 @@ void		free_lst(t_list **stack);
 
 // errors;
 void		print_error(void);
-void		lst_print_error(t_list **stack);
+void		lst_print_error(t_list **stack, char **str);
 void		free_arr(char **str);
 
 

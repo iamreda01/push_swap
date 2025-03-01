@@ -7,7 +7,7 @@ void	sort_2nb(t_list *stack)
 
 void	sort_3nb(t_list **stack)
 {
-	t_list *max;
+	t_list	*max;
 
 	max = ft_max(*stack);
 	if ((*stack)->index == max->index)
@@ -20,7 +20,7 @@ void	sort_3nb(t_list **stack)
 
 void	sort_4nb(t_list **stack_a, t_list **stack_b)
 {
-	t_list *min;
+	t_list	*min;
 
 	min = ft_min(*stack_a);
 	while (*stack_a != min)
@@ -32,7 +32,7 @@ void	sort_4nb(t_list **stack_a, t_list **stack_b)
 
 void	sort_5nb(t_list **stack_a, t_list **stack_b)
 {
-	t_list *min;
+	t_list	*min;
 
 	min = ft_min(*stack_a);
 	while (*stack_a != min)

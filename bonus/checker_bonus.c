@@ -22,11 +22,10 @@ int main (int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac < 2)
-		print_error();
+		return (0);
 	joined = join_args(av);
 	check_args(joined, &stack_a);
 	str = get_next_line(0);
-	// printf("%s\n" ,str);
 	while (str)
 	{
 		if (is_valid_move(str))
@@ -39,14 +38,19 @@ int main (int ac, char **av)
 		free(str);
 		str = get_next_line(0);
 	}
+	free(str);
 	if(is_sorted(stack_a))
 	{
 		ft_putstr("OK\n");
+		free_lst(&stack_a);
 		exit (0);
 	}
 	else
 	{
 		ft_putstr("KO\n");
+		free_lst(&stack_a);
+		if (stack_b)
+			free_lst(&stack_b);
 		exit (1);
 	}	
 }
