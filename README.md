@@ -10,6 +10,7 @@ Key Features
 - Chunk Algorithm: A balanced strategy that optimises sorting efficiency.
 - Linked List Implementation: Enhanced my understanding and handling of linked lists.
 - Optimised Sorting: Focused on reducing the number of operations.
+
 Learning Outcomes
 - Improved my algorithmic thinking and problem-solving skills.
 - Gained deeper insights into data structures, especially linked lists.
