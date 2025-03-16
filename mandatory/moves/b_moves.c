@@ -1,25 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   b_moves.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/01 22:13:10 by rel-kass          #+#    #+#             */
+/*   Updated: 2025/03/01 22:13:32 by rel-kass         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-void    sb(t_list *stack)
+void	sb(t_list *stack)
 {
-    swap(stack);
-    ft_putstr("sb\n");
+	swap(stack);
+	ft_putstr("sb\n");
 }
 
-void    rb(t_list **stack)
+void	rb(t_list **stack)
 {
-    rotate(stack);
-    ft_putstr("rb\n");
+	rotate(stack);
+	ft_putstr("rb\n");
 }
 
-void    rrb(t_list **stack)
+void	rrb(t_list **stack)
 {
-    reverse_rotate(stack);
-    ft_putstr("rrb\n");
+	reverse_rotate(stack);
+	ft_putstr("rrb\n");
 }
 
-void    pb(t_list **a, t_list **b)
+void	pb(t_list **a, t_list **b)
 {
-    push(a, b);
-    ft_putstr("pb\n");
+	push(a, b);
+	ft_putstr("pb\n");
 }

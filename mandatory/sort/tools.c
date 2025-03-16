@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tools.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/01 22:14:50 by rel-kass          #+#    #+#             */
+/*   Updated: 2025/03/08 00:04:18 by rel-kass         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-t_list		*ft_max(t_list *stack)
+t_list	*ft_max(t_list *stack)
 {
-	t_list *max;
+	t_list	*max;
+
 	if (!stack)
 		return (NULL);
-
 	max = stack;
 	while (stack->next)
 	{
@@ -16,12 +28,12 @@ t_list		*ft_max(t_list *stack)
 	return (max);
 }
 
-t_list		*ft_min(t_list *stack)
+t_list	*ft_min(t_list *stack)
 {
-	t_list *min;
+	t_list	*min;
+
 	if (!stack)
 		return (NULL);
-
 	min = stack;
 	while (stack->next)
 	{
@@ -34,7 +46,7 @@ t_list		*ft_min(t_list *stack)
 
 void	set_pos(t_list *stack)
 {
-	int pos;
+	int	pos;
 
 	pos = 0;
 	while (stack)
@@ -45,18 +57,18 @@ void	set_pos(t_list *stack)
 	}
 }
 
-int		is_case(t_list *stack)
+int	is_case(t_list **stack)
 {
 	int		count;
-	t_list *tmp;
+	t_list	*tmp;
 	int		size;
 
-	size = ft_lstsize(stack);
+	size = ft_lstsize(*stack);
 	count = 0;
-	tmp = stack;
+	tmp = *stack;
 	while (tmp->next)
 	{
-		if (tmp->next - tmp->next->next <= 4)
+		if (tmp->index - tmp->next->index <= 4)
 			count++;
 		tmp = tmp->next;
 	}

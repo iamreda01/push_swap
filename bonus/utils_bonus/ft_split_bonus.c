@@ -72,7 +72,7 @@ static int	fill(char **str, char *s, char c)
 		}
 		if (len)
 		{
-			if (!safemalloc(str, i, len +1))
+			if (!safemalloc(str, i, len + 1))
 				return (0);
 			ft_strlcpy(str[i], (s - len), len + 1);
 		}

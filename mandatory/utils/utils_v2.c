@@ -1,29 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   utils_v2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/04 15:52:58 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/03/01 22:24:43 by rel-kass         ###   ########.fr       */
+/*   Created: 2025/03/01 22:20:04 by rel-kass          #+#    #+#             */
+/*   Updated: 2025/03/02 15:22:29 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int ac, char **av)
+void	swap_int(int *a, int *b)
 {
-	char	*joined;
-	t_list	*stack_a;
-	t_list	*stack_b;
+	int	tmp;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	if (ac < 2)
-		return (0);
-	joined = join_args(av);
-	check_args(joined, &stack_a);
-	ft_sort(&stack_a, &stack_b);
-	free_lst(&stack_a);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while ((s1[i] || s2[i]))
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
+}
+
+int	which_chunk(int size)
+{
+	int	chunk;
+
+	chunk = 0;
+	if (size <= 100)
+		chunk = 16;
+	else
+		chunk = 36;
+	return (chunk);
 }

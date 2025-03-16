@@ -6,15 +6,15 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 01:24:26 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/16 01:50:20 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/03/08 00:04:08 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int		is_sorted(t_list *stack)
+int	is_sorted(t_list *stack)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (stack->next)
@@ -27,19 +27,15 @@ int		is_sorted(t_list *stack)
 	return (1);
 }
 
-
 void	moveto_b(t_list **stack_a, t_list **stack_b, int decis)
 {
-	int chunk;
-	int i;
-	int size;
+	int	chunk;
+	int	i;
+	int	size;
 
 	i = 0;
 	size = ft_lstsize(*stack_a);
-	if (size <= 100)
-		chunk = 16;
-	else
-		chunk = 36;
+	chunk = which_chunk(size);
 	while (i < size)
 	{
 		if ((*stack_a)->index <= i)
@@ -53,13 +49,12 @@ void	moveto_b(t_list **stack_a, t_list **stack_b, int decis)
 			rb(stack_b);
 			i++;
 		}
-		else if ( decis) 
-			ra(stack_a);
-		else
+		else if (decis)
 			rra(stack_a);
+		else
+			ra(stack_a);
 	}
 }
-
 
 void	moveto_a(t_list **stack_a, t_list **stack_b)
 {
@@ -78,20 +73,20 @@ void	moveto_a(t_list **stack_a, t_list **stack_b)
 		}
 		else if (max->pos <= size / 2)
 			rb(stack_b);
-		else 
+		else
 			rrb(stack_b);
 	}
 }
 
-
 void	ft_sort(t_list **stack_a, t_list **stack_b)
 {
-	int decis;
-	decis = is_case(*stack_a);
+	int	decis;
+
+	decis = is_case(stack_a);
 	if (is_sorted(*stack_a))
 	{
 		free_lst(stack_a);
-		exit (0);
+		exit(0);
 	}
 	if (ft_lstsize(*stack_a) <= 5)
 	{
@@ -104,7 +99,7 @@ void	ft_sort(t_list **stack_a, t_list **stack_b)
 		else
 			sort_5nb(stack_a, stack_b);
 	}
-	else 
+	else
 	{
 		moveto_b(stack_a, stack_b, decis);
 		moveto_a(stack_a, stack_b);

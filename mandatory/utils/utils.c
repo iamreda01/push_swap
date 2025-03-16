@@ -6,15 +6,15 @@
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:08:16 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/02/16 15:27:31 by rel-kass         ###   ########.fr       */
+/*   Updated: 2025/03/01 22:22:58 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int		ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -24,7 +24,7 @@ int		ft_strlen(char *str)
 
 void	ft_putstr(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -50,8 +50,8 @@ char	*ft_strdup(char *s1)
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str;
-	int j;
-	int i;
+	int		j;
+	int		i;
 
 	i = 0;
 	j = 0;
@@ -73,6 +73,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	str[i] = '\0';
 	return (str);
 }
+
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 {
 	size_t	srclen;
@@ -92,25 +93,4 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 	}
 	dst[i] = '\0';
 	return (srclen);
-}
-
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
-	i = 0;
-	while ((s1[i] || s2[i]))
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (0);
-}
-void	swap_int(int *a, int *b)
-{
-	int tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
 }

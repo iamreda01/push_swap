@@ -77,10 +77,10 @@ int	ft_lstsize(t_list *lst)
 
 void	free_lst(t_list **stack)
 {
-	t_list *tmp;
+	t_list	*tmp;
+
 	if (!stack || !*stack)
 		return ;
-
 	while (*stack)
 	{
 		tmp = (*stack)->next;

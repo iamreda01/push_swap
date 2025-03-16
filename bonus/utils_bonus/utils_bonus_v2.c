@@ -1,40 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_bonus.c                                      :+:      :+:    :+:   */
+/*   utils_bonus_v2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rel-kass <rel-kass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/16 15:42:34 by rel-kass          #+#    #+#             */
-/*   Updated: 2025/03/07 15:12:40 by rel-kass         ###   ########.fr       */
+/*   Created: 2025/03/01 22:32:10 by rel-kass          #+#    #+#             */
+/*   Updated: 2025/03/02 18:12:33 by rel-kass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap_bonus.h"
 
-void	print_error(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	lst_print_error(t_list **stack, char **str)
-{
-	if (stack)
-		free_lst(stack);
-	free_arr(str);
-	print_error();
-}
-
-void	free_arr(char **str)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while ((s1[i] || s2[i]))
 	{
-		free(str[i]);
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i++;
 	}
-	free(str);
+	return (0);
+}
+
+void	swap_int(int *a, int *b)
+{
+	int	tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+int	which_chunk(int size)
+{
+	int	chunk;
+
+	chunk = 0;
+	if (size <= 100)
+		chunk = 16;
+	else
+		chunk = 36;
+	return (chunk);
+}
+
+int	is_sorted(t_list *stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack->next)
+	{
+		if (stack->index != i)
+			return (0);
+		stack = stack->next;
+		i++;
+	}
+	return (1);
 }
