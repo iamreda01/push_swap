@@ -1,4 +1,4 @@
-Push_swap - Sorting Algorithm Project
+#Push_swap - Sorting Algorithm Project
 This repository contains my implementation of the push_swap project from 1337, a challenge focused on efficiently sorting a stack of numbers in ascending order using a limited set of operations.
 
 About the Project
